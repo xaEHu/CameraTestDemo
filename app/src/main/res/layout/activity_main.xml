@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="200dp"
+        android:layout_height="300dp" />
+
+    <Button
+        android:id="@+id/picture_system"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自带相册"
+        android:onClick="onBtnClick"/>
+    <Button
+        android:id="@+id/camera_system"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自带相机拍照"
+        android:onClick="onBtnClick"/>
+    <Button
+        android:id="@+id/camera_diy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义相机拍照"
+        android:onClick="onBtnClick"/>
+    <Button
+        android:id="@+id/video_system"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自带相机录制视频"
+        android:onClick="onBtnClick"/>
+    <Button
+        android:id="@+id/video_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自带视频选择"
+        android:onClick="onBtnClick"/>
+
+</LinearLayout>
