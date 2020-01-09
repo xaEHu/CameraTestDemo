@@ -26,6 +26,7 @@ import java.io.FileNotFoundException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String TAG = "mainActivity";
     private File cameraSavePath;//拍照照片路径
     private Uri uri;//照片uri
     private int btnId;
@@ -66,9 +67,14 @@ public class MainActivity extends AppCompatActivity {
         }
         if (btnId == R.id.camera_system) {
             openCamera();
+            return;
         }
         if (btnId == R.id.video_select) {
             selectVideo();
+            return;
+        }
+        if (btnId == R.id.video_select_diy) {
+            startActivity(new Intent(this,ListActivity.class));
         }
     }
 
@@ -107,7 +113,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openVideo(){
-        String filePath = Environment.getExternalStorageDirectory().getPath() + "/" + System.currentTimeMillis() + ".mp4";   // 保存路径
+        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/MyTestVideo/");
+        if(!file.exists()){
+            if(file.mkdir()){
+                Log.i(TAG, "openVideo: 新建文件夹成功");
+            }else{
+                Log.i(TAG, "openVideo: 新建文件夹成功");
+            }
+        }
+        String filePath = Environment.getExternalStorageDirectory().getPath() + "/MyTestVideo/" + System.currentTimeMillis() + ".mp4";   // 保存路径
         cameraSavePath = new File(filePath);   // 将路径转换为Uri对象
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);  // 表示跳转至相机的录视频界面
         intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0.5);    // MediaStore.EXTRA_VIDEO_QUALITY 表示录制视频的质量，从 0-1，越大表示质量越好，同时视频也越大

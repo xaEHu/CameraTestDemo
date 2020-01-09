@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".CameraActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".ListActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
